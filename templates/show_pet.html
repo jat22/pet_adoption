@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Pet Details{% endblock %}
+{% block body%}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h2>Name: {{pet.name}}</h2>
+		</div>
+		<div class="col">
+			<h2>Species: {{(pet.species).capitalize()}}</h2>
+		</div>
+		<div class="col">
+			<h2>
+				Age: 
+				{% if pet.age %}
+				{{pet.age}}
+				{% else %}
+				Unknown
+				{% endif %}
+			</h2>
+		</div>
+		<div class="col">
+			<h2>
+				Status:
+				{% if pet.avaliable %}
+				Avaliable
+				{% else %}
+				Unavaliable
+				{% endif %}
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<img style="max-width:15rem;" src="{{pet.photo_url}}">
+		</div>
+		<div class="col">
+			<div class="row">
+				<div class="col">
+					<div class="mb-3">
+						{{form.photo_url.label(class_="form-label")}}
+						{{form.photo_url(class_="form-control")}}
+						{% for error in form.photo_url.errors %}
+							<small class="form-text text-danger">{{error}}</small>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="mb-3">
+						{{form.notes.label(class_="form-label")}}
+						{{form.notes(class_="form-control")}}
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+{% endblock %}
