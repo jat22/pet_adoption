@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-<!-- {% block title %}Pet Adoption{% endblock %} -->
+{% block title %}Pet Adoption{% endblock %}
 
 {% block body %}
 
@@ -11,7 +11,7 @@
 			<div class="card">
 				<img class="card-img-top" src="{{pet.photo_url}}" alt="pet photo">
 				<div class="card-body">
-					<h3>{{pet.name}}</h3>
+					<h3><a href="/{{pet.id}}">{{pet.name}}</a></h3>
 					{% if pet.avaliable %}
 					<h4>I'm Avaliable!</h4>
 					{% endif %}

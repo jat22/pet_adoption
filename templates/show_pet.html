@@ -35,25 +35,31 @@
 			<img style="max-width:15rem;" src="{{pet.photo_url}}">
 		</div>
 		<div class="col">
-			<div class="row">
-				<div class="col">
-					<div class="mb-3">
-						{{form.photo_url.label(class_="form-label")}}
-						{{form.photo_url(class_="form-control")}}
-						{% for error in form.photo_url.errors %}
-							<small class="form-text text-danger">{{error}}</small>
-						{% endfor %}
+			<form action="/{{pet.id}}" method="POST">
+				{{ form.hidden_tag() }}
+				<div class="row">
+					<div class="col">
+						<div class="mb-3">
+							{{form.photo_url.label(class_="form-label")}}
+							{{form.photo_url(class_="form-control")}}
+							{% for error in form.photo_url.errors %}
+								<small class="form-text text-danger">{{error}}</small>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<div class="mb-3">
-						{{form.notes.label(class_="form-label")}}
-						{{form.notes(class_="form-control")}}
+				<div class="row">
+					<div class="col">
+						<div class="mb-3">
+							{{form.notes.label(class_="form-label")}}
+							{{form.notes(class_="form-control")}}
+						</div>
 					</div>
 				</div>
-			</div>	
+				<div class="row">
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
