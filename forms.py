@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, URLField, IntegerField, TextAreaField, SelectField
+from wtforms import StringField, BooleanField, URLField, IntegerField, TextAreaField, SelectField, RadioField
 from wtforms.validators import InputRequired, AnyOf, URL, Optional, NumberRange
 
 class AddPetForm(FlaskForm):
@@ -23,3 +23,4 @@ class EditPetForm(FlaskForm):
 	photo_url = URLField('Photo URL', 
 		      			validators=[URL(message="Please enter a valid URL."), Optional()])
 	notes = TextAreaField("Notes")
+	avaliable = BooleanField("Avaliable")
